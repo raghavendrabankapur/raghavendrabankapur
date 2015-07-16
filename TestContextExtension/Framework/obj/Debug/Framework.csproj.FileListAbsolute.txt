@@ -1,0 +1,9 @@
+D:\Workarounds\TestContextExtension\Framework\bin\Debug\Framework.dll
+D:\Workarounds\TestContextExtension\Framework\bin\Debug\Framework.pdb
+D:\Workarounds\TestContextExtension\Framework\bin\Debug\WebDriver.dll
+D:\Workarounds\TestContextExtension\Framework\bin\Debug\WebDriver.Support.dll
+D:\Workarounds\TestContextExtension\Framework\bin\Debug\WebDriver.xml
+D:\Workarounds\TestContextExtension\Framework\bin\Debug\WebDriver.Support.xml
+D:\Workarounds\TestContextExtension\Framework\obj\Debug\Framework.csprojResolveAssemblyReference.cache
+D:\Workarounds\TestContextExtension\Framework\obj\Debug\Framework.dll
+D:\Workarounds\TestContextExtension\Framework\obj\Debug\Framework.pdb
