@@ -12,6 +12,10 @@ namespace Framework
         #region Constructor
         #endregion Constructor
 
+        public Pages(TestContextExtension extesion) : base(extesion)
+        {
+            
+        }
         #region Public Properties
         [ElementDefinition("userName")]
         public IWebElement UserNameTextBox { get; private set; }
@@ -50,13 +54,13 @@ namespace Framework
         #region Public Methods
         public override void WaitForPageReady()
         {
-            TestContextExtension.TC.Driver.WaitForElement(new []{"userName"});
+            this.Extension.Driver.WaitForElement(new []{"userName"});
         }
         #endregion Public Methods
 
-        public static Pages Create()
+        public static Pages Create(TestContextExtension extension)
         {
-            return new Pages();
+            return new Pages(extension);
         }
     }
 }

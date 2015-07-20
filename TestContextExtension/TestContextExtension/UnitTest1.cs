@@ -17,18 +17,18 @@ namespace TestContextExtension
         [TestMethod]
         public void TestMethod1()
         {
-            var extension = new Framework.TestContextExtension { Driver = new FirefoxDriver() };
+            var extension = new Framework.TestContextExtension {Driver = new FirefoxDriver()};
             try
             {
-                extension.TC = extension;
+                //extension = extension;
+                //extension.Driver.Navigate().GoToUrl("http://accounts-dev.autodesk.com");
+                extension.Driver.Navigate().GoToUrl("http://accounts-dev.autodesk.com");
 
-                extension.TC.Driver.Navigate().GoToUrl("http://accounts-dev.autodesk.com");
+                new PageOps(extension).Signin("testme", "Password1");
 
-                new PageOps().Signin("testme", "Password1");
-
-                extension.TC.Driver.WaitForElement(new[] { "VerificationCode" });
-                extension.TC.Driver.FindElement("another method", 100).Click();
-                extension.TC.Driver.WaitForElement(new[] { "btnSubmit" });
+                extension.Driver.WaitForElement(new[] { "VerificationCode" });
+                extension.Driver.FindElement("another method", 100).Click();
+                extension.Driver.WaitForElement(new[] { "btnSubmit" });
             }
             finally
             {
@@ -42,16 +42,13 @@ namespace TestContextExtension
             var extension = new Framework.TestContextExtension { Driver = new FirefoxDriver() };
             try
             {
-                
-                extension.TC = extension;
+                extension.Driver.Navigate().GoToUrl("http://accounts-dev.autodesk.com");
 
-                extension.TC.Driver.Navigate().GoToUrl("http://accounts-dev.autodesk.com");
+                new PageOps(extension).Signin("DeleteUserLoEKKsJtCbWjKs", "Password1");
+                extension.Driver.WaitForElement(new[] { "view_profile_container" });
 
-                new PageOps().Signin("DeleteUserLoEKKsJtCbWjKs", "Password1");
-                extension.TC.Driver.WaitForElement(new[] { "view_profile_container" });
-
-                extension.TC.Driver.FindElement("security settings", 100).Click();
-                extension.TC.Driver.WaitForElement(new[] { "security_settings_container" });
+                extension.Driver.FindElement("security settings", 100).Click();
+                extension.Driver.WaitForElement(new[] { "security_settings_container" });
             }
             finally
             {
@@ -65,20 +62,17 @@ namespace TestContextExtension
             var extension = new Framework.TestContextExtension { Driver = new FirefoxDriver() };
             try
             {
+                extension.Driver.Navigate().GoToUrl("http://accounts-dev.autodesk.com");
 
-                extension.TC = extension;
+                new PageOps(extension).Signin("DeleteUserLoEKKsJtCbWjKs", "Password1");
+                extension.Driver.WaitForElement(new[] { "view_profile_container" });
 
-                extension.TC.Driver.Navigate().GoToUrl("http://accounts-dev.autodesk.com");
-
-                new PageOps().Signin("DeleteUserLoEKKsJtCbWjKs", "Password1");
-                extension.TC.Driver.WaitForElement(new[] { "view_profile_container" });
-
-                extension.TC.Driver.FindElement("linked accounts", 100).Click();
-                extension.TC.Driver.WaitForElement(new[] { "linked_accounts_container" });
+                extension.Driver.FindElement("linked accounts", 100).Click();
+                extension.Driver.WaitForElement(new[] { "linked_accounts_container" });
             }
             finally
             {
-                extension.TC.Driver.Close();
+                extension.Driver.Close();
             }
         }
 
@@ -88,19 +82,17 @@ namespace TestContextExtension
             var extension = new Framework.TestContextExtension { Driver = new FirefoxDriver() };
             try
             {
-                extension.TC = extension;
+                extension.Driver.Navigate().GoToUrl("http://accounts-dev.autodesk.com");
 
-                extension.TC.Driver.Navigate().GoToUrl("http://accounts-dev.autodesk.com");
+                new PageOps(extension).Signin("DeleteUserLoEKKsJtCbWjKs", "Password1");
+                extension.Driver.WaitForElement(new[] { "view_profile_container" });
 
-                new PageOps().Signin("DeleteUserLoEKKsJtCbWjKs", "Password1");
-                extension.TC.Driver.WaitForElement(new[] { "view_profile_container" });
-
-                extension.TC.Driver.FindElement("preferences", 100).Click();
-                extension.TC.Driver.WaitForElement(new[] { "change_language_btn" });
+                extension.Driver.FindElement("preferences", 100).Click();
+                extension.Driver.WaitForElement(new[] { "change_language_btn" });
             }
             finally
             {
-                extension.TC.Driver.Close();
+                extension.Driver.Close();
             }
         }
     }

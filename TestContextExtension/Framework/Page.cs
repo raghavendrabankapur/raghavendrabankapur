@@ -14,7 +14,37 @@ namespace Framework
     {
         private const int frequency = 10;
 
+        protected TestContextExtension Extension { get; set; }
+
         protected IDictionary<string, Lazy<IWebElement>> lazyElements = new Dictionary<string, Lazy<IWebElement>>();
+
+        protected Page(TestContextExtension extesion)
+        {
+            Extension = extesion;
+            int tryFrequency = 0;
+            bool exceptionCaught;
+            do
+            {
+                exceptionCaught = false;
+
+                try
+                {
+                    this.WaitForPageReady();
+                    this.InitPage();
+                }
+                catch (Exception e)
+                {
+                    if (tryFrequency > frequency)
+                    {
+                        Trace.WriteLine(e.StackTrace);
+                        Assert.Fail(e.Message);
+                    }
+
+                    exceptionCaught = true;
+                    tryFrequency++;
+                }
+            } while (exceptionCaught);
+        }
 
         protected Page()
         {
@@ -49,7 +79,7 @@ namespace Framework
 
         public virtual void InitPage()
         {
-            IWebDriver webDriver = TestContextExtension.TC.Driver;
+            IWebDriver webDriver = this.Extension.Driver;
 
             Type curr = this.GetType();
 

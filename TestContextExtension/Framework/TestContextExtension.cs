@@ -16,7 +16,7 @@ namespace Framework
         private IWebDriver driver;
         private  static  TestContextExtension testContextInstance;
 
-        public TestContextExtension TC
+        public TestContextExtension GetInstace
         {
             get { return testContextInstance; }
             set { testContextInstance = value; }

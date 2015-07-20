@@ -10,9 +10,9 @@ namespace Framework
     {
         private readonly Pages _page;
 
-        public PageOps()
+        public PageOps(TestContextExtension extension)
         {
-            _page = Pages.Create();
+            _page = Pages.Create(extension);
         }
 
         public void Signin(string username, string password)
